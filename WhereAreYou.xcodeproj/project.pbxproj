@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		184E9A79E5F9559224DA0B19 /* Pods_WhereAreYou.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A03D887D1AE42681852CB4C /* Pods_WhereAreYou.framework */; };
 		A52E6926245D4B610084B268 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E6925245D4B610084B268 /* AppDelegate.swift */; };
 		A52E6928245D4B610084B268 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E6927245D4B610084B268 /* SceneDelegate.swift */; };
 		A52E692A245D4B610084B268 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E6929245D4B610084B268 /* ViewController.swift */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25F3374AEDF3C6FC47705AD2 /* Pods-WhereAreYou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereAreYou.release.xcconfig"; path = "Target Support Files/Pods-WhereAreYou/Pods-WhereAreYou.release.xcconfig"; sourceTree = "<group>"; };
+		3A03D887D1AE42681852CB4C /* Pods_WhereAreYou.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhereAreYou.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A52E6922245D4B610084B268 /* WhereAreYou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhereAreYou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A52E6925245D4B610084B268 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A52E6927245D4B610084B268 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		A52E6931245D4B610084B268 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A52E6934245D4B610084B268 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A52E6936245D4B610084B268 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2601C2D0C9620BE85B91FE8 /* Pods-WhereAreYou.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereAreYou.debug.xcconfig"; path = "Target Support Files/Pods-WhereAreYou/Pods-WhereAreYou.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184E9A79E5F9559224DA0B19 /* Pods_WhereAreYou.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D3D8FD3BC38D5215F11A2BC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A03D887D1AE42681852CB4C /* Pods_WhereAreYou.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A52E6919245D4B610084B268 = {
 			isa = PBXGroup;
 			children = (
 				A52E6924245D4B610084B268 /* WhereAreYou */,
 				A52E6923245D4B610084B268 /* Products */,
+				C58D7AACB4734ACAE56EFD75 /* Pods */,
+				6D3D8FD3BC38D5215F11A2BC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +85,15 @@
 			path = WhereAreYou;
 			sourceTree = "<group>";
 		};
+		C58D7AACB4734ACAE56EFD75 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E2601C2D0C9620BE85B91FE8 /* Pods-WhereAreYou.debug.xcconfig */,
+				25F3374AEDF3C6FC47705AD2 /* Pods-WhereAreYou.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A52E6939245D4B610084B268 /* Build configuration list for PBXNativeTarget "WhereAreYou" */;
 			buildPhases = (
+				302D3343019D08A65241C584 /* [CP] Check Pods Manifest.lock */,
 				A52E691E245D4B610084B268 /* Sources */,
 				A52E691F245D4B610084B268 /* Frameworks */,
 				A52E6920245D4B610084B268 /* Resources */,
+				C7326DFBB99382E98A530299 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,6 +161,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		302D3343019D08A65241C584 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WhereAreYou-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7326DFBB99382E98A530299 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WhereAreYou/Pods-WhereAreYou-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WhereAreYou/Pods-WhereAreYou-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WhereAreYou/Pods-WhereAreYou-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A52E691E245D4B610084B268 /* Sources */ = {
@@ -286,6 +354,7 @@
 		};
 		A52E693A245D4B610084B268 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2601C2D0C9620BE85B91FE8 /* Pods-WhereAreYou.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -304,6 +373,7 @@
 		};
 		A52E693B245D4B610084B268 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25F3374AEDF3C6FC47705AD2 /* Pods-WhereAreYou.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
