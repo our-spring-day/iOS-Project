@@ -21,16 +21,14 @@ class ViewController: UIViewController {
         button.addTarget(self, action: #selector(go), for: .touchUpInside)
         return button
     }()
-    
     var authState: NMFAuthState!
     var cameraUpdate : NMFCameraUpdate?
     var nmapFView : NMFMapView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         nmapFView = NMFMapView(frame: view.frame)
-        
+        nmapFView!.addCameraDelegate(delegate: self)
         view.addSubview(nmapFView!)
         view.addSubview(button)
         buttonAutolayout()
@@ -46,8 +44,13 @@ class ViewController: UIViewController {
     @objc func go(){
         cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: 37.5670135, lng: 126.9783740))
         cameraUpdate!.animation = .fly
-        cameraUpdate!.animationDuration = 3
+        cameraUpdate!.animationDuration = 1.5
         nmapFView!.moveCamera(cameraUpdate!)
     }
 }
 
+extension ViewController : NMFMapViewCameraDelegate{
+    func mapViewCameraIdle(_ mapView: NMFMapView) {
+        print(nmapFView!.cameraPosition.target)
+    }
+}
