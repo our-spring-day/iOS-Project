@@ -32,6 +32,10 @@ class ViewController: UIViewController {
         view.addSubview(nmapFView!)
         view.addSubview(button)
         buttonAutolayout()
+        
+        let marker = NMFMarker()
+        marker.position = NMGLatLng(lat: 37.5670135, lng: 126.9783740)
+        marker.mapView = nmapFView
     }
 
     func buttonAutolayout(){
