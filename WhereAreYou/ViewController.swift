@@ -110,6 +110,5 @@ extension ViewController : NMFMapViewCameraDelegate{
         UIView.animate(withDuration: 0.25, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
             self.imageView!.transform = CGAffineTransform(translationX: 0, y: -10)
         })
-        print("commit please")
     }
 }
