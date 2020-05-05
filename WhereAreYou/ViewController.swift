@@ -57,8 +57,11 @@ class ViewController: UIViewController {
 
 extension ViewController : NMFMapViewCameraDelegate{
     func mapViewCameraIdle(_ mapView: NMFMapView) {
+        print(BlockOperation.self)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+            print(BlockOperation.self)
             print(self.nmapFView!.cameraPosition.target)
+            
         }
         
     }
