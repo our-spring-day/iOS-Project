@@ -35,7 +35,6 @@ class ViewController: UIViewController {
         buttonAutolayout()
         createImageView()
         createAddressLabel()
-        
     }
     //좌표찍힐라벨(addressText)생성함수
     func createAddressLabel() {
@@ -81,7 +80,6 @@ class ViewController: UIViewController {
         nmapFView!.moveCamera(cameraUpdate!)
     }
 }
-
 extension ViewController : NMFMapViewCameraDelegate{
     //카메라의 움직임이끝났을때
     func mapViewCameraIdle(_ mapView: NMFMapView) {
@@ -103,8 +101,6 @@ extension ViewController : NMFMapViewCameraDelegate{
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8,execute: task!)
     }
     //카메라가 움직일때
-    
-    
     func mapView(_ mapView: NMFMapView, cameraWillChangeByReason reason: Int, animated: Bool){
         //task를 취소
         task?.cancel()
@@ -116,3 +112,4 @@ extension ViewController : NMFMapViewCameraDelegate{
         })
     }
 }
+//커밋 왜 안찍히는거에여...
