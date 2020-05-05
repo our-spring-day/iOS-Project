@@ -37,6 +37,7 @@ class ViewController: UIViewController {
         createAddressLabel()
         
     }
+    //좌표찍힐라벨(addressText)생성함수
     func createAddressLabel() {
         addressText = UILabel()
         self.view.addSubview(addressText!)
@@ -48,11 +49,13 @@ class ViewController: UIViewController {
         addressText!.centerXAnchor.constraint(equalTo: view.centerXAnchor,constant: 0).isActive = true
         addressText!.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
+    //맵뷰(nmapFView)생성함수
     func createMapView() {
         nmapFView = NMFMapView(frame: view.frame)
         nmapFView!.addCameraDelegate(delegate: self)
         view.addSubview(nmapFView!)
     }
+    //핀(imageView)생성함수
     func createImageView() {
         //하드로 고정해놓았기때문에 후에 화면중앙에 핀의 꼭짓점이 정확히 찍히는 방법 구상해야됨
         imageView  = UIImageView()
@@ -84,11 +87,16 @@ extension ViewController : NMFMapViewCameraDelegate{
     func mapViewCameraIdle(_ mapView: NMFMapView) {
         //1초뒤에 task를 실행
         task = DispatchWorkItem {
+            //핀 알파값 원래대로
             self.imageView?.alpha = 1
+            //카메라포지션을 저장해줌(보기에편하게)
             let position = self.nmapFView!.cameraPosition
+            //카메라포지션의 좌표값을 스트링으로 변환후 addressText 띄우줌
             self.addressText!.text = String(format: "%f",position.target.lat, position.target.lng)
+            //이건 후에 api 쏠때 필요한 코드여서 그냥 남겨둠
             print(self.nmapFView!.cameraPosition.target)
-            UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+            //애니메이션의 시간은 0.3초 y 10 이동
+            UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
                 self.imageView!.transform = CGAffineTransform(translationX: 0, y: 10)
             })
         }
@@ -98,8 +106,10 @@ extension ViewController : NMFMapViewCameraDelegate{
     func mapView(_ mapView: NMFMapView, cameraWillChangeByReason reason: Int, animated: Bool){
         //task를 취소
         task?.cancel()
+        //핀 알파값 조정
         imageView?.alpha = 0.5
-        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+        //애니메이션의 시간은 0.3초, y -10 이동
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
             self.imageView!.transform = CGAffineTransform(translationX: 0, y: -10)
         })
     }
