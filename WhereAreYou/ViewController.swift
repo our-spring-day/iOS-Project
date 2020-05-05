@@ -32,15 +32,17 @@ class ViewController: UIViewController {
         view.addSubview(nmapFView!)
         view.addSubview(button)
         buttonAutolayout()
+
         
         let marker = NMFMarker()
         marker.position = NMGLatLng(lat: 37.5670135, lng: 126.9783740)
         marker.mapView = nmapFView
+
     }
 
     func buttonAutolayout(){
-        button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        button.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 200).isActive = true
+        button.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 150).isActive = true
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         button.widthAnchor.constraint(equalToConstant: 100).isActive = true
     }
@@ -55,6 +57,9 @@ class ViewController: UIViewController {
 
 extension ViewController : NMFMapViewCameraDelegate{
     func mapViewCameraIdle(_ mapView: NMFMapView) {
-        print(nmapFView!.cameraPosition.target)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+            print(self.nmapFView!.cameraPosition.target)
+        }
+        
     }
 }
