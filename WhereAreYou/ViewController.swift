@@ -95,21 +95,23 @@ extension ViewController : NMFMapViewCameraDelegate{
             self.addressText!.text = String(format: "%f",position.target.lat, position.target.lng)
             //이건 후에 api 쏠때 필요한 코드여서 그냥 남겨둠
             print(self.nmapFView!.cameraPosition.target)
-            //애니메이션의 시간은 0.3초 y 10 이동
-            UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+            //애니메이션의 시간은 0.25초 y 10 이동
+            UIView.animate(withDuration: 0.25, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
                 self.imageView!.transform = CGAffineTransform(translationX: 0, y: 10)
             })
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8,execute: task!)
     }
     //카메라가 움직일때
+    
+    
     func mapView(_ mapView: NMFMapView, cameraWillChangeByReason reason: Int, animated: Bool){
         //task를 취소
         task?.cancel()
         //핀 알파값 조정
         imageView?.alpha = 0.5
-        //애니메이션의 시간은 0.3초, y -10 이동
-        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+        //애니메이션의 시간은 0.25초, y -10 이동
+        UIView.animate(withDuration: 0.25, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
             self.imageView!.transform = CGAffineTransform(translationX: 0, y: -10)
         })
     }
