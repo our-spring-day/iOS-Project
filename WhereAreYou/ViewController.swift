@@ -11,7 +11,7 @@ import NMapsMap
 
 class ViewController: UIViewController {
     var addressString : String?
-    var addressText : UILabel?
+    var addressText = UILabel()
     var imageView : UIImageView?
     var button : UIButton = {
         let button = UIButton()
@@ -32,21 +32,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createMapView()
-        buttonAutolayout()
+//        buttonAutolayout()
         createImageView()
         createAddressLabel()
     }
     //좌표찍힐라벨(addressText)생성함수
     func createAddressLabel() {
         addressText = UILabel()
-        self.view.addSubview(addressText!)
-        addressText!.backgroundColor = .blue
-        addressText!.textColor = .white
-        addressText!.translatesAutoresizingMaskIntoConstraints = false
-        addressText!.heightAnchor.constraint(equalToConstant: 70).isActive = true
-        addressText!.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        addressText!.centerXAnchor.constraint(equalTo: view.centerXAnchor,constant: 0).isActive = true
-        addressText!.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        self.view.addSubview(addressText)
+        addressText.backgroundColor = .blue
+        addressText.textColor = .white
+        addressText.translatesAutoresizingMaskIntoConstraints = false
+        addressText.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        addressText.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        addressText.centerXAnchor.constraint(equalTo: view.centerXAnchor,constant: 0).isActive = true
+        addressText.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     //맵뷰(nmapFView)생성함수
     func createMapView() {
@@ -90,7 +90,7 @@ extension ViewController : NMFMapViewCameraDelegate{
             //카메라포지션을 저장해줌(보기에편하게)
             let position = self.nmapFView!.cameraPosition
             //카메라포지션의 좌표값을 스트링으로 변환후 addressText 띄우줌
-            self.addressText!.text = String(format: "%f",position.target.lat, position.target.lng)
+            self.addressText.text = String(format: "%f",position.target.lat, position.target.lng)
             //이건 후에 api 쏠때 필요한 코드여서 그냥 남겨둠
             print(self.nmapFView!.cameraPosition.target)
             //애니메이션의 시간은 0.25초 y 10 이동
