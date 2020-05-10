@@ -134,13 +134,13 @@ class ViewController: UIViewController {
             let group = DispatchGroup()
             group.enter()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.taskToSimulation(i: self.testNavigate[self.simulationFlag])
+                self.taskToSimulation(i: self.testNavigate[self.simulationFlag])//배열[0]
                 group.leave()
                 self.simulationFlag += 1
             }
             group.notify(queue: .main) {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    self.taskToSimulation(i: self.testNavigate[self.simulationFlag])
+                    self.taskToSimulation(i: self.testNavigate[self.simulationFlag])//배열[1]
                     self.simulationFlag += 1
                     self.repeatSimulation()
                 }
